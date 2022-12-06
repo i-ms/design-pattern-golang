@@ -1,7 +1,7 @@
 package main
 
-import "github.com/i-ms/golang_design_pattern/creational/singleton"
+import "github.com/i-ms/golang_design_pattern/structural/adapter/adapter_computer"
 
 func main() {
-	singleton.App()
+	adapter_computer.App()
 }
