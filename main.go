@@ -1,9 +1,7 @@
 package main
 
-import (
-	"github.com/i-ms/golang_design_pattern/creational/prototype/prototype_file"
-)
+import "github.com/i-ms/golang_design_pattern/creational/singleton"
 
 func main() {
-	prototype_file.App()
+	singleton.App()
 }
