@@ -1,7 +1,9 @@
 package main
 
-import "github.com/i-ms/golang_design_pattern/creational/builder/builder_building"
+import (
+	"github.com/i-ms/golang_design_pattern/creational/prototype/prototype_file"
+)
 
 func main() {
-	builder_building.App()
+	prototype_file.App()
 }
