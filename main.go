@@ -1,9 +1,7 @@
 package main
 
-import (
-	"github.com/i-ms/golang_design_pattern/creational/abstract_factory/abstract_factory_sports"
-)
+import "github.com/i-ms/golang_design_pattern/creational/builder/builder_building"
 
 func main() {
-	abstract_factory_sports.App()
+	builder_building.App()
 }
