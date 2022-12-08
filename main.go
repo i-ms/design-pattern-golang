@@ -1,7 +1,7 @@
 package main
 
-import "github.com/i-ms/golang_design_pattern/structural/decorator/decorator_pizza"
+import "github.com/i-ms/golang_design_pattern/structural/facade/facade_wallet"
 
 func main() {
-	decorator_pizza.App()
+	facade_wallet.App()
 }

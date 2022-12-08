@@ -1,4 +1,4 @@
-package facade
+package facade_wallet
 
 import "fmt"
 
