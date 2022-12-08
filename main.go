@@ -1,9 +1,7 @@
 package main
 
-import (
-	"github.com/i-ms/golang_design_pattern/structural/flyweight/flyweight_game"
-)
+import "github.com/i-ms/golang_design_pattern/structural/proxy/proxy_server"
 
 func main() {
-	flyweight_game.App()
+	proxy_server.App()
 }
