@@ -1,7 +1,9 @@
 package main
 
-import "github.com/i-ms/golang_design_pattern/structural/facade/facade_wallet"
+import (
+	"github.com/i-ms/golang_design_pattern/structural/flyweight/flyweight_game"
+)
 
 func main() {
-	facade_wallet.App()
+	flyweight_game.App()
 }
