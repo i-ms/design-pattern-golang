@@ -1,7 +1,9 @@
 package main
 
-import "github.com/i-ms/golang_design_pattern/structural/bridge/bridge_computer"
+import (
+	"github.com/i-ms/golang_design_pattern/structural/composite/composite_file"
+)
 
 func main() {
-	bridge_computer.App()
+	composite_file.App()
 }
