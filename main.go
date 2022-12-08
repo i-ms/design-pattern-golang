@@ -1,9 +1,7 @@
 package main
 
-import (
-	"github.com/i-ms/golang_design_pattern/structural/composite/composite_file"
-)
+import "github.com/i-ms/golang_design_pattern/structural/decorator/decorator_pizza"
 
 func main() {
-	composite_file.App()
+	decorator_pizza.App()
 }
