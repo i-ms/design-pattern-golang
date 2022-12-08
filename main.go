@@ -1,7 +1,7 @@
 package main
 
-import "github.com/i-ms/golang_design_pattern/structural/adapter/adapter_computer"
+import "github.com/i-ms/golang_design_pattern/structural/bridge/bridge_computer"
 
 func main() {
-	adapter_computer.App()
+	bridge_computer.App()
 }
