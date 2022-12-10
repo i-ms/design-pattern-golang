@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/i-ms/golang_design_pattern/behavioral/chain_of_responsibility/cof_medical"
+	"github.com/i-ms/golang_design_pattern/behavioral/command/command_tv"
 )
 
 func main() {
-	cof_medical.App()
+	command_tv.App()
 }
