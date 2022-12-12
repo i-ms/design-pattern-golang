@@ -1,9 +1,7 @@
 package main
 
-import (
-	"github.com/i-ms/golang_design_pattern/behavioral/command/command_tv"
-)
+import "github.com/i-ms/golang_design_pattern/behavioral/iterator/iterator_collection"
 
 func main() {
-	command_tv.App()
+	iterator_collection.App()
 }
