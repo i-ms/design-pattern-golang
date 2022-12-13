@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/i-ms/golang_design_pattern/behavioral/memento/memento_caretaker"
+	"github.com/i-ms/golang_design_pattern/behavioral/visitor/visitor_shape"
 )
 
 func main() {
-	memento_caretaker.App()
+	visitor_shape.App()
 }
