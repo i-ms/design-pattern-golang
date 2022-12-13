@@ -1,9 +1,7 @@
 package main
 
-import (
-	"github.com/i-ms/golang_design_pattern/behavioral/observer/observer_subject"
-)
+import "github.com/i-ms/golang_design_pattern/behavioral/state/state_vendingMachine"
 
 func main() {
-	observer_subject.App()
+	state_vendingMachine.App()
 }
