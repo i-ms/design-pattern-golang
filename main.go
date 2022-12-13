@@ -1,7 +1,7 @@
 package main
 
-import "github.com/i-ms/golang_design_pattern/behavioral/strategy/strategy_cache"
+import "github.com/i-ms/golang_design_pattern/behavioral/template/template_otp"
 
 func main() {
-	strategy_cache.App()
+	template_otp.App()
 }
