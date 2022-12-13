@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/i-ms/golang_design_pattern/behavioral/visitor/visitor_shape"
+	"github.com/i-ms/golang_design_pattern/behavioral/observer/observer_subject"
 )
 
 func main() {
-	visitor_shape.App()
+	observer_subject.App()
 }
