@@ -1,7 +1,7 @@
 package main
 
-import "github.com/i-ms/golang_design_pattern/behavioral/state/state_vendingMachine"
+import "github.com/i-ms/golang_design_pattern/behavioral/strategy/strategy_cache"
 
 func main() {
-	state_vendingMachine.App()
+	strategy_cache.App()
 }
