@@ -3,6 +3,14 @@ package abstract_factory_sports
 type Nike struct {
 }
 
+type NikeShirt struct {
+	Shirt
+}
+
+type NikeShoe struct {
+	Shoe
+}
+
 func (a *Nike) makeShoe() IShoe {
 	return &NikeShoe{
 		Shoe: Shoe{
