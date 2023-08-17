@@ -6,13 +6,6 @@ type PaymentProcessor interface {
 	ProcessPayment(amount float64) string
 }
 
-// CreditCard type
-type CreditCard struct{}
-
-func (c *CreditCard) ProcessPayment(amount float64) string {
-	return fmt.Sprintf("Credit card payment processed for amount %f", amount)
-}
-
 type PaymentFactory struct{}
 
 func (p *PaymentFactory) GetPaymentMethod(method string) (PaymentProcessor, error) {
