@@ -3,8 +3,8 @@ package payment
 import "fmt"
 
 // CreditCard type
-type CreditCard struct{}
+type CreditCard[T Number] struct{}
 
-func (c *CreditCard) ProcessPayment(amount float64) string {
-	return fmt.Sprintf("Credit card payment processed for amount %f", amount)
+func (c *CreditCard[T]) ProcessPayment(amount T) string {
+	return fmt.Sprintf("Credit card payment processed for amount %v", amount)
 }

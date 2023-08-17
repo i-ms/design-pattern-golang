@@ -1,21 +1,27 @@
 package payment
 
-import "fmt"
+import (
+	"fmt"
+	"golang.org/x/exp/constraints"
+)
 
-type PaymentProcessor interface {
-	ProcessPayment(amount float64) string
+type Number interface {
+	constraints.Integer | constraints.Float
+}
+type PaymentProcessor[T Number] interface {
+	ProcessPayment(amount T) string
 }
 
-type PaymentFactory struct{}
+type PaymentFactory[T Number] struct{}
 
-func (p *PaymentFactory) GetPaymentMethod(method string) (PaymentProcessor, error) {
+func (p *PaymentFactory[T]) GetPaymentMethod(method string) (PaymentProcessor[T], error) {
 	switch method {
 	case "paypal":
-		return new(Paypal), nil
+		return new(Paypal[T]), nil
 	case "creditcard":
-		return new(CreditCard), nil
+		return new(CreditCard[T]), nil
 	case "banktransfer":
-		return new(BankTransfer), nil
+		return new(BankTransfer[T]), nil
 	default:
 		return nil, fmt.Errorf("Payment method %s not recognized", method)
 	}

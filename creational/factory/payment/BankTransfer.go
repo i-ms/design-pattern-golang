@@ -3,8 +3,8 @@ package payment
 import "fmt"
 
 // BankTransfer type
-type BankTransfer struct{}
+type BankTransfer[T Number] struct{}
 
-func (u *BankTransfer) ProcessPayment(amount float64) string {
-	return fmt.Sprintf("BankTransfer payment processed for amount %f", amount)
+func (u *BankTransfer[T]) ProcessPayment(amount T) string {
+	return fmt.Sprintf("BankTransfer payment processed for amount %v", amount)
 }
