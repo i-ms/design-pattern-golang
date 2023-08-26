@@ -1,4 +1,4 @@
-package singleton
+package static_singleton
 
 import (
 	"fmt"
