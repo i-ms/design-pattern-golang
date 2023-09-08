@@ -9,7 +9,6 @@ func TestBridgePayment(t *testing.T) {
 	assertion := assert.New(t)
 	onlinePayment := &OnlinePayment{}
 	onlinePayment.SetPaymentMethod(&CreditCard{})
-
 	// Test success scenario
 	assertion.Equal("Online Payment: Processed by Credit Card.", onlinePayment.Authorize(), "OnlinePayment with CreditCard should succeed.")
 	assertion.Equal("Online Payment Refund: Transaction Cancelled by Credit Card.", onlinePayment.Refund(), "OnlinePayment Refund with CreditCard should succeed.")

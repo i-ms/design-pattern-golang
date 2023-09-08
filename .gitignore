@@ -17,3 +17,5 @@
 
 .idea
 .gitignore
+.vscode
+go.sum
