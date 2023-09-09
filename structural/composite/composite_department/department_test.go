@@ -41,20 +41,20 @@ func TestCompositeDepartment(t *testing.T) {
 	developers.Add(developer2)
 
 	marketingTeam := &Department{
-    Name: "Marketing Team",
-  }
+		Name: "Marketing Team",
+	}
 
 	marketingTeam.Add(marketingDirector)
 
 	techTeam := &Department{
-    Name: "Tech Team",
-  }
+		Name: "Tech Team",
+	}
 	techTeam.Add(techDirector)
 	techTeam.Add(developers)
 
 	ceoTeam := &Department{
-    Name: "CEO's Team",
-  }
+		Name: "CEO's Team",
+	}
 	ceoTeam.Add(ceo)
 	ceoTeam.Add(techTeam)
 	ceoTeam.Add(marketingTeam)

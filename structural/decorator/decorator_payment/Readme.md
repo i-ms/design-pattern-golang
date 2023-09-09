@@ -17,6 +17,7 @@
 6. **currency_conversion_decorator.go:** Implements currency conversion.
 7. **payment_test.go:** Test cases using the assert library.
 
+### Class Diagram
 ```mermaid
 classDiagram
     PaymentMethod <|-- CreditCard
@@ -35,6 +36,7 @@ classDiagram
     CurrencyConversionDecorator: +ProcessPayment(amount float64) string
 ```
 
+### Sequence Diagram
 ```mermaid
 sequenceDiagram
     main->>CurrencyConversionDecorator: ProcessPayment(100)
