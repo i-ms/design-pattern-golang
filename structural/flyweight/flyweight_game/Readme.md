@@ -33,14 +33,13 @@ classDiagram
         +getDressByType(dressType: string): Dress
     }
     class Dress {
+        <<Interface>>
         +getColor(): string
     }
     class TerroristDress {
-        -color: string
         +getColor(): string
     }
     class CounterTerroristDress {
-        -color: string
         +getColor(): string
     }
     class Player {
@@ -48,7 +47,7 @@ classDiagram
         -playerType: string
         -lat: int
         -long: int
-        +newLocation(lat: int, long: int): void
+        +newLocation(lat: in t, long: int): void
     }
     class Game {
         -terrorists: []*Player
@@ -57,11 +56,12 @@ classDiagram
         +addCounterTerrorist(dressType: string): void
     }
 
-    DressFactory --> Dress : creates >
-    DressFactory --> TerroristDress : creates >
-    DressFactory --> CounterTerroristDress : creates >
-    Dress <|--- Player : uses
-    Game --> Player : creates >
+    Dress <|-- TerroristDress :implements
+    Dress <|-- CounterTerroristDress :implements
+
+    Player --* Dress :composes
+    Game --* Player :composes
+    Player --> DressFactory :provides flyweight
 
 ```
 
