@@ -1,5 +1,7 @@
 # Flyweight Pattern
 
+Flyweight enables you fit more objects in available amount of RAM memory by sharing the common part of the state between multiple objects instead of keeping all of the data in each object.
+
 ## Objective
 
 1. **Minimize the Memory Usage:** The primary goal is to reduce the memory footprint of an application. This is especially important when dealing with a large number of obejcts that share a significant portion of their state.
@@ -67,7 +69,9 @@ classDiagram
 
 **Explanation**
 
-1. Dress
+- As the `Dress` will be the same between the players of same teams, so the flyweight for `Dress` is created using the DressFactory.
+- This enables to reuse the same `Dress` object among all the members of a team.
+- So if a team consist of 100 players, with the use of flyweight only one object of `Dress` will be created for all team members instead of 100 objects that would have been created in normal scenario(all the team members will share same `Dress` object).
 
 ### Sequence Diagram
 
