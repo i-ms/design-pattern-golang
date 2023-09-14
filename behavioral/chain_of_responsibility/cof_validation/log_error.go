@@ -1,7 +1,7 @@
 package cof_validation
 
 type LogErrors struct {
-	successor ValidationHandler
+	SuccessorHandler
 }
 
 func NewLogErrors() *LogErrors {
@@ -11,9 +11,8 @@ func NewLogErrors() *LogErrors {
 func (l *LogErrors) Validate(input string) error {
 	// Simulate logging validation errors
 	println("Validaiton error occured: ", input)
+	if l.successor == nil {
+		return nil
+	}
 	return nil
-}
-
-func (l *LogErrors) SetSuccessor(handler ValidationHandler) {
-	l.successor = handler
 }

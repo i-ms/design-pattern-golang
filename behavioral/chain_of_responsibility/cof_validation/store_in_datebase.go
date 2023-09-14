@@ -1,7 +1,7 @@
 package cof_validation
 
 type StoreInDatabase struct {
-	successor ValidationHandler
+	SuccessorHandler
 }
 
 func NewStoreInDatabase() *StoreInDatabase {
@@ -11,9 +11,8 @@ func NewStoreInDatabase() *StoreInDatabase {
 func (s *StoreInDatabase) Validate(input string) error {
 	// Simulate storing input in database
 	println("Input data stored in database")
+	if s.successor == nil {
+		return nil
+	}
 	return s.successor.Validate(input)
-}
-
-func (s *StoreInDatabase) SetSuccessor(handler ValidationHandler) {
-	s.successor = handler
 }
