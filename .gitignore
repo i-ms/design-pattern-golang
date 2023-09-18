@@ -18,4 +18,6 @@
 .idea
 .gitignore
 .vscode
+buffer
 go.sum
+.DS_Store
