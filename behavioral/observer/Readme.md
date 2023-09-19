@@ -22,7 +22,7 @@ The Observer pattern offers several benefits:
 
 You should consider using the Observer pattern when:
 
-- One object (the subject) needs to notify multiple objects (observers) about changes in its state.
+- One object (the subject / Publisher) needs to notify multiple objects (observers) about changes in its state.
 
 - You want to implement event handling systems, where events trigger actions in multiple parts of the system.
 
@@ -32,130 +32,65 @@ You should consider using the Observer pattern when:
 
 To implement the Observer pattern in Go, follow these steps:
 
-1. Define an `Observer` interface with an `Update` method that the concrete observers will implement. The `Update` method is called when the subject's state changes.
+1. Define an `Observer / Publisher` interface with an `Update` method that the concrete observers will implement. The `Update` method is called when the subject's state changes.
 
-2. Define a `Subject` interface with methods to register, remove, and notify observers. The subject should maintain a list of registered observers.
-
-3. Implement a concrete subject (e.g., `SocialMediaUser`) that holds the state and notifies observers when changes occur.
-
-4. Implement concrete observers (e.g., other `SocialMediaUser` instances) that implement the `Update` method to respond to state changes.
+2. Implement a concrete subject (e.g., `User` `Channel`) that holds the state and notifies observers when changes occur.
 
 ## Implementation Details
 
 In the provided Go code, the Observer pattern is implemented as follows:
 
-- `Observer` and `Subject` interfaces define the contracts for observers and subjects.
+- `Publisher` and `Subcscriber` interfaces define the contracts for observers and subjects.
 
-- `SocialMediaUser` represents a concrete subject that can post messages and be followed by other users. It notifies its followers when a message is posted.
-
-- `SocialMediaChannel` and `SocialMediaGroup` are additional concrete implementations of the `Subject` interface, representing channels and groups that users can join and post messages to.
+- `User` & `Channel` represents a concrete subject that can post messages and be followed by other users. It notifies its followers when a message is posted.
 
 ## Class Diagram
 
 ```mermaid
 classDiagram
-    class SocialMediaUser {
-        - name: string
-        - followers: []Observer
-        - messages: []string
-        - lock: sync.Mutex
-        + NewSocialMediaUser(name: string)
-        + PostMessage(message: string)
-        + Follow(user: Observer)
-        + Unfollow(user: Observer)
-        + NotifyFollowers(message: string)
-        + Update(message: string)
+    class User {
+        +CreatePost(m string)
+        +NotifyFollowers(message string)
+        +Update(name, message string)
     }
-
-    class SocialMediaChannel {
-        - name: string
-        - users: []Observer
-        - messages: []string
-        - lock: sync.Mutex
-        + NewSocialMediaChannel(name: string)
-        + RegisterUser(user: Observer)
-        + PostMessage(message: string)
-        + RemoveUser(user: Observer)
-        + NotifyObservers(message: string)
+    class Channel {
+        +CreatePost(m string)
+        +Notify(message string)
+        +Update(name, message string)
     }
-
-    class SocialMediaGroup {
-        - name: string
-        - users: []Observer
-        - messages: []string
-        - lock: sync.Mutex
-        + NewSocialMediaGroup(name: string)
-        + RegisterUser(user: Observer)
-        + PostMessage(message: string)
-        + RemoveUser(user: Observer)
-        + NotifyObservers(message: string)
-    }
-
-    class SocialMediaPlatform {
-        - users: []*SocialMediaUser
-        + NewSocialMediaPlatform()
-        + RegisterUser(user: *SocialMediaUser)
-        + ShowUserList()
-    }
-
-    class Observer {
+    class Profile {
         <<interface>>
-        Update(message: string)
+        +Update(string, string)
     }
-
-    class Subject {
-        <<interface>>
-        + RegisterObserver(observer: Observer)
-        + RemoveObserver(observer: Observer)
-        + NotifyObservers(message: string)
+    class ProfileList {
+        +Add(p Profile)
+        +Remove(p Profile)
     }
+    User --|> Profile
+    Channel --|> Profile
+    User --> ProfileList
+    Channel --> ProfileList
 
-     SocialMediaUser --|> Observer
-    SocialMediaUser --|> Subject
-    SocialMediaChannel --|> Subject
-    SocialMediaGroup --|> Subject
-    SocialMediaPlatform --|> Subject
-    SocialMediaPlatform o-- SocialMediaUser
-    SocialMediaChannel o-- Observer
-    SocialMediaGroup o-- Observer
 ```
 
 ## Sequence Diagram
 
 ```mermaid
 sequenceDiagram
-    participant Alice as Alice (SocialMediaUser)
-    participant Bob as Bob (SocialMediaUser)
-    participant Charlie as Charlie (SocialMediaUser)
-    participant Platform as Platform (SocialMediaPlatform)
+    participant User
+    participant Channel
+    participant Observer
 
-    Alice->>Platform: RegisterUser()
-    Bob->>Platform: RegisterUser()
-    Charlie->>Platform: RegisterUser()
+    User ->> User: CreatePost(message)
+    User ->> User: NotifyFollowers(message)
+    User ->> Observer: Update(name, message)
 
-    Alice->>Bob: Follow()
-    Alice->>Charlie: Follow()
-
-    loop Posting a Message
-        Alice->>Alice: PostMessage()
-        Alice->>Alice: NotifyFollowers()
-
-        Alice->>Bob: Update()
-        Alice->>Charlie: Update()
-    end
-
-    Alice->>Charlie: Unfollow()
-
-    loop Posting Another Message
-        Alice->>Alice: PostMessage()
-        Alice->>Alice: NotifyFollowers()
-
-        Alice->>Bob: Update()
-    end
-
+    Channel ->> Channel: CreatePost(message)
+    Channel ->> Channel: Notify(message)
+    Channel ->> Observer: Update(name, message)
 ```
 
-The class diagram shows the relationships between the `SocialMediaUser`, `SocialMediaChannel`, `SocialMediaGroup`, `Observer`, and `Subject` interfaces and their implementations.
+The class diagram shows the relationships between the `User`, `Channel`, `Publisher`, `Profile`.
 
 ## Applicability and Use Cases
 

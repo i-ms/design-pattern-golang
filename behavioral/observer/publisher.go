@@ -1,5 +1,6 @@
 package observer
 
 type Publisher interface {
-	Update(string, string)
+	CreatePost(string)
+	Notify(string)
 }
