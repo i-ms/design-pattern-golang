@@ -12,11 +12,8 @@ func TestCofValidation(t *testing.T) {
 		NewLogErrors(),
 	)
 
-	// Simulate user input
-	input := "abc123"
-
 	// Process the input
-	err := processor.ProcessInput(input)
+	err := processor.ProcessInput("abc123")
 	if err != nil {
 		println("Input processing failed: ", err)
 	} else {
